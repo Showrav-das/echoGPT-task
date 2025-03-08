@@ -35,6 +35,10 @@ export default function Home() {
 
   const handleSendMessage = async (content: string) => {
     try {
+      if (content == "" || content.trim() === "") {
+        alert("Please enter a message");
+        return;
+      }
       setLoading(true);
 
       // Add user message
@@ -123,7 +127,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="">
+      <div>
         <div className="flex flex-col ">
           {!firstTimeChat && (
             <div>
