@@ -17,7 +17,7 @@ export default function WelcomeScreen({ handleNewChat }: WelcomeScreenProps) {
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto fade-in-delay-1">
+        <p className="text-base text-gray-600 max-w-2xl mx-auto fade-in-delay-1">
           Welcome to EchoGPT, your intelligent companion for creativity and
           productivity. Get personalized help with writing, analysis, coding,
           and more - all in one powerful, free AI platform.

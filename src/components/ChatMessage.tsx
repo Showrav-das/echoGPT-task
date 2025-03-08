@@ -9,7 +9,7 @@ export function ChatMessage({ message }: { message: Message }) {
     >
       <div
         className={`px-4 py-2 rounded-lg ${
-          message.role === "user" ? "bg-gray-200 text-white" : "bg-white"
+          message.role === "user" ? "bg-gray-200 text-black" : "bg-white"
         }`}
       >
         {message.content}
