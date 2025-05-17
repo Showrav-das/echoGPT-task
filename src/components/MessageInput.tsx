@@ -26,17 +26,6 @@ export function MessageInput({
 
   return (
     <div className="flex justify-between items-center gap-1">
-      {/* <Input
-        value={input}
-        onChange={(e: any) => setInput(e.target.value)}
-        placeholder="Type a message..."
-        onKeyPress={(e: any) => {
-          if (!loading && e.key === "Enter") {
-            handleSendMessage(input);
-            setInput("");
-          }
-        }}
-      /> */}
       <input
         className=" border-0 bg-transparent p-1 w-full text-sm focus:outline-none"
         value={input}
@@ -59,19 +48,9 @@ export function MessageInput({
           }}
           className="p-2 rounded-full hover:bg-gray-300 bg-gray-200"
         >
-          {/* <Send className="h-5 w-5 text-gray-500" /> */}
           <ArrowUpIcon className="h-5 w-5 text-gray-500" />
         </button>
       </div>
-      {/* <Button
-        disabled={loading}
-        onClick={() => {
-          handleSendMessage(input);
-          setInput("");
-        }}
-      >
-        Send
-      </Button> */}
     </div>
   );
 }
