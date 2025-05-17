@@ -27,14 +27,37 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
 
 const FormSchema = z.object({
+    // time: z.date({
+    //     required_error: "A date and time is required.",
+    // }),
     time: z.date({
         required_error: "A date and time is required.",
     }),
+}).refine((data) => data.time > new Date(), {
+    message: "Date and time must be in the future.",
+    path: ["time"],
 });
+
+
+function getRoundedFutureTime(stepMinutes: number, offsetMinutes: number): Date {
+    const now = new Date();
+    const future = new Date(now.getTime() + offsetMinutes * 60 * 1000);
+    const minutes = future.getMinutes();
+    const roundedMinutes = Math.ceil(minutes / stepMinutes) * stepMinutes;
+    future.setMinutes(roundedMinutes);
+    future.setSeconds(0);
+    future.setMilliseconds(0);
+    return future;
+}
+
+const defaultTime = getRoundedFutureTime(5, 15);
 
 export function DateTimePickerForm() {
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
+        defaultValues: {
+            time: defaultTime
+        }
     });
 
     const now = new Date();
